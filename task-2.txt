@@ -1,4 +1,195 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541029
+AD-SOYAD:ŞULE NUR BAYĞUT
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+PROBLEM ANALİZİ:                                                                                                                  Tic Tac Toe oyununda kazanmamızı sağlayacak adımları bulmalıyız. Başlangıçta en iyi hamleyi yaparak ve devamında birbirine uygun adımlarla ilerleyerek kazanma stratejimizi oluşturmalıyız .Rakibin hamlelerini öngörmeli ,kazanmasını engellemeli ve savunmaları iyi yapmalıyız.Oyunun sonucunda iyi bir strateji ile kazanmalıyız 
+
+ÇÖZÜM ÖNERİLERİ                                                                                                               ÖNCELİK 1 : Hemen kazanabilmeye odaklan      
+ÖNCELİK 2: Eğer rakip stratejil olarak daha iyi bir hamleyle başlamışsa rakibin kazanmasını engellemeye odaklan        
+ÖNCELİK 3: Orta karayi al ve merkez kontrolÜ sağla               
+ÖNCELİK 4: Köşeleri iyi değerlendir             
+ÖNCELİK 5:Rakin hamlelerini tahmin et ve hamlelerini bu tahminlere göre yap                                             
+TİC TAC TOE KAZANMA STRATEJİSİ:                                                                                                  Başlat:
+    Tahta = 3x3 boş karelerden oluşan tablo
+    Sen = "X"
+    Rakip = "O"
+    AktifOyuncu = Sen
+
+Fonksiyon KazanmaKontrol(Tahta, Sembol):
+    # Eğer aynı sembolle üç kare hizalanmışsa kazanırsın.
+    Eğer üç kare aynı sembolle hizalanmışsa:
+        Bu hamleyi uygula; kazanırsın
+    Aksi halde:
+        Bu hamle kazanmayı sağlamaz
+
+Fonksiyon BosHücreVarMi(Tahta):
+    # Eğer herhangi bir kare boşsa, hamle yapılabilir.
+    Eğer herhangi bir kare boşsa:
+        Hamle yapılabilir
+    Aksi halde:
+        Hamle yapılamaz
+
+Fonksiyon RakibinTehlikeleriniBelirle(Tahta):
+    # Rakibin kazanabileceği veya fork (çatal) oluşturabileceği hücreleri belirle
+    TehlikeliHücreler = boş kareler arasında, rakibin kazanacağı veya birden fazla kazanma hattı oluşturacağı kareler
+    Bu listeyi kullan
+
+Fonksiyon EnMantikliHamleyiBelirle(Tahta, AktifOyuncu):
+    Rakip = Eğer AktifOyuncu Sen ise Rakip değilse Sen
+    TehlikeliHücreler = RakibinTehlikeleriniBelirle(Tahta)
+
+    # 1️⃣ Kazanma fırsatını kullan
+    Her boş kareyi kontrol et:
+        Eğer bu kareyi alırsan kazanıyorsan:
+            Bu hamleyi yap
+            DUR
+
+    # 2️⃣ Rakibi engelle
+    Eğer TehlikeliHücreler içinde rakibin kazanacağı bir kare varsa:
+        Bu kareye hamle yaparak rakibi engelle
+        DUR
+
+    # 3️⃣ Fork (çatal) oluştur
+    Her boş kareyi kontrol et:
+        Eğer bu hamle birden fazla kazanma hattı oluşturuyorsa:
+            Bu hamleyi yap
+            DUR
+
+    # 4️⃣ Rakibin fork’ünü engelle
+    Eğer TehlikeliHücreler içinde rakibin fork oluşturacağı kareler varsa:
+        Bu hamleyi yaparak engelle
+        DUR
+
+    # 5️⃣ Stratejik planlama – ilk hamle bizden geliyorsa
+    Eğer AktifOyuncu = Sen VE sadece 1 veya 2 hamle yapıldıysa:
+        # Merkez kareyi al
+        Eğer orta kare boşsa:
+            Bu hamleyi yap
+            DUR
+        # Karşı köşeyi al
+        Eğer rakip bir köşe aldıysa ve karşı köşe boşsa:
+            Bu hamleyi yap
+            DUR
+        # Boş köşelerden birini al
+        Eğer herhangi bir köşe boşsa:
+            Bu hamleyi yap
+            DUR
+
+    # 6️⃣ Kenar hamlelerini değerlendir
+    Eğer herhangi bir kenar boşsa:
+        Bu hamleyi yap
+        DUR
+
+    # 7️⃣ Son çare – rastgele boş kare seç
+    Eğer başka seçenek yoksa:
+        Boş bir kare seç ve hamleyi yap
+
+Fonksiyon RakibinOlasilikleriniDegerlendir(Tahta, Rakip):
+    # Rakibin yapabileceği tüm mantıklı hamleleri düşün
+    Her boş kareyi kontrol et:
+        Eğer bu kare rakibe kazanma veya fork fırsatı sağlıyorsa:
+            Bu kareyi riskli olarak işaretle
+        Aksi halde:
+            Bu kare güvenli veya stratejik olabilir
+
+Fonksiyon HamleStratejisi(Tahta, AktifOyuncu):
+    # Adım adım mantıklı hamle stratejisi:
+    1. Eğer kazanma fırsatı varsa hemen al.
+    2. Rakip kazanacaksa onu engelle.
+    3. Fork oluşturabilirsin; bu fırsatı değerlendir.
+    4. Rakibin fork’ünü engelle.
+    5. Eğer ilk hamleyi biz yaptıysak, merkeze veya köşeye yönel.
+    6. Boş kenar kareleri değerlendir.
+    7. Son çare olarak rastgele boş kareyi al.
+
+# --- OYUN DÖNGÜSÜ ---
+Başlat:
+    Tahtayı çiz
+    AktifOyuncu = Sen
+
+    WHILE BosHücreVarMi(Tahta) VE Kazanan Yoksa:
+        RakibinOlasilikleriniDegerlendir(Tahta, Rakip)
+        HamleStratejisi(Tahta, AktifOyuncu)
+        Tahtayı güncelle
+
+        Eğer AktifOyuncu kazandıysa:
+            Oyunu durdur
+            Kazananı ilan et
+
+        Eğer tüm kareler dolduysa:
+            Oyunu durdur
+            Beraberliği ilan et
+
+        AktifOyuncu = diğer oyuncuya geç
+LLM:
+"tic  tac toe oyunu için kazanma stratejisi oluşturmalısın ve bunun için tüm olasılıkları değerlendirmelisin oyunu stratejik açıdan düşün ve nasıl kazanabilceğini planla"
+  
+Temel: kazanma hatları (tüm kazanma yolları)
+
+Tahta 3×3 olsun; hücreleri (r,c) ile gösterelim (r: sıra 1..3, c: sütun 1..3).
+
+8 kazanma hattı:
+
+Satırlar: (1,1)-(1,2)-(1,3), (2,1)-(2,2)-(2,3), (3,1)-(3,2)-(3,3)
+
+Sütunlar: (1,1)-(2,1)-(3,1), (1,2)-(2,2)-(3,2), (1,3)-(2,3)-(3,3)
+
+Çaprazlar: (1,1)-(2,2)-(3,3), (1,3)-(2,2)-(3,1)
+
+Bu 8 hattı her hamlede kontrol etmelisiniz (kazanma/blok için).
+2) Genel öncelik kuralı (her hamlede takip edilecek 8 adımlı öncelik)
+
+Her hamlede bu sıraya göre karar ver:
+
+Hemen kazan: Eğer bir hattın iki hücresi sizde (X ya da O) ve üçüncüsü boşsa → oraya oyna (kazanırsın).
+
+Rakibin kazanmasını engelle: Rakibin bir sonraki hamlede kazanacağı bir boş hücre varsa → oraya oyna (blokla).
+
+Fork (çatal) oluştur: İki ayrı kazanma tehdidi yaratacak hamleyi yap (rakibin aynı anda iki hattı kapatması gerekir).
+
+Rakibin fork’unu engelle: Rakip bir fork yapabiliyorsa onu engelle (mümkünse doğrudan bloke eden hamle; değilse zorlayıcı hamle ile rakibi defansa mecbur bırak).
+
+Merkezi al: Orta (2,2) boşsa al. (çok güçlü)
+
+Karşı köşe (opposite corner): Rakip köşe ile başladıysa, karşı köşeyi al (ör. rakip (1,1) ise siz (3,3)).
+
+Boş köşe al: Bir köşe boşsa al (köşeler genelde daha değerlidir).
+
+Boş kenar (edge/side) al: Son çare orta kenarlardan al.
+
+Bu 8 kural klasik, nettir ve hatasız uygulandığında karşı oyuncu mükemmel oynasa bile beraberlik sağlar; rakip hata yaparsa siz kazanırsınız.
+3) Fork (çatal) mantığı — nasıl kurulur / nasıl engellenir
+
+Fork kurmak: Bir hamleyle gelecekte iki farklı hattı aynı anda iki hücrede tehdit edebiliyorsanız fork oluşur. Örnek: tahtadaki düzen uygunken bir köşeye oynayıp hem bir satır hem bir çapraz için eşzamanlı tehdit yaratabilirsiniz.
+
+Fork’ü engelleme yöntemleri:
+
+Eğer rakip fork tehdidi varsa, doğrudan o hücreye oynayıp fork’ü kapat.
+
+Eğer doğrudan kapatma yoksa, rakibin bir tehdidini zorunlu kılan hamle yap (ör. rakibe kazanma hamlesi ver, böylece rakip sizi fork ile hemen kazanamaz çünkü mecburen blok atar).
+
+Bazı durumlarda karşı köşe almak fork’ü engeller.
+
+Pratik Not: Fork stratejileri köşe-orta kombinasyonlarında sık görülür. İlk oyuncu (X) köşe ile başlarsa, doğru savunma köşe/merkez kombinasyonlarıyla çatal engellenir.
+4) Açılış rehberi (ilk hamlelerin kısa değerlendirmesi)
+
+Sen ilk oynuyorsan (X):
+
+En iyi ilk hamle: merkez (2,2). Sonraki amaç: rakibin köşe cevaplarına göre köşe/karşı köşe ile devam ederek fork fırsatları yarat.
+
+İyi ikinci tercih: köşe. (Kenar = zayıf açılış).
+
+Rakip ilk oynadıysa:
+
+Rakip merkezse → köşe oynayın (iyi denge).
+
+Rakip köşeyse → merkez en iyi cevaptır (rakibi dengelemek ve fork riskini azaltmak).
+
+Rakip kenar (edge) ile başladıysa → merkez ile cevap verin.
+
+Kısaca: merkez en güçlü pozisyon; köşe ikinci; kenarlar en son tercihtir
+5) Tüm olasılıkları değerlendirmek (matematiksel/algoritmik yol)
+
+Tüm oyun ağacını (tüm olasılıkları) tarayıp her pozisyon için optimal hamleyi bulmak istiyorsanız Minimax algoritmasını kullanırsınız. Minimax, oyun ağacını (doğru kurallarla) derinlemesine tarar ve her yaprakta kazanan/beraberlik/mağlubiyete puan (ör. +1,0,-1) atar; geri dönerken maksimum/minimum tercihlerle en iyi hamleyi seçer.
+
+Kazanma stratejisinde oyunda ilk hamleyi yapan biziz ama bunun tam tersi hali de olabilir, bu olasılıkta ilk hamleyi rakip yapar ve  hamleler tamamiyle rakibi engellemek üzerine kurulu olur ,çoğunlukla savunma yapılır ve yeni bir kazanma stratejisi oluşturulur.
