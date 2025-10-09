@@ -1,4 +1,101 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541029
+AD-SOYAD:Şule Nur Bayğut 
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+PROBLEM ANALİZİ:
+Mükemmel bir selfie çekmeliyiz . mükemmel bir selfie çekmek için iyi bir ışık, iyi ayarlanmış kamera açısı,temiz bir arka plan ,iyi bir poz ve en sonunda eksikleri kendi isteğimize bağlı düzenlememiz lazım.
+
+MÜKEMMEL SELFİE ÇEKİMİ
+
+BAŞLA
+
+# 1. Işık kontrolü
+IŞIK_UYGUN ← HAYIR
+TEKRAR ET
+    EĞER yüzüne yeterli doğal ışık geliyorsa
+        IŞIK_UYGUN ← EVET
+    DEĞİLSE
+        ışığı ayarla veya pozlamayı artır
+tamamla ve bir sonraki adıma geç
+
+# 2. Arka plan kontrolü
+ARKA_PLAN_TEMİZ ← HAYIR
+TEKRAR ET
+    EĞER arka planda dikkat dağıtıcı nesne yoksa
+        ARKA_PLAN_TEMİZ ← EVET
+    DEĞİLSE
+        dikkat dağıtıcı nesneleri kaldır veya açı değiştir
+tamamla ve bir sonraki adıma geç
+
+# 3. Kamera açısı ayarı
+AÇI_DÜZGÜN ← HAYIR
+TEKRAR ET
+    kamerayı hafif yukarıdan ve göz hizasında tut
+    EĞER açı tatmin edici ise
+        AÇI_DÜZGÜN ← EVET
+tamamla ve bir sonraki adıma geç
+
+# 4. Yüz ve poz ayarı
+POZ_DÜZGÜN ← HAYIR
+TEKRAR ET
+    yüzünü ortala ve rahat bir poz al
+    EĞER poz doğal ve tatmin edici ise
+        POZ_DÜZGÜN ← EVET
+tamamla ve bir sonraki adıma geç
+
+# 5. Gülümseme
+GÜLÜMSEME_DÜZGÜN ← HAYIR
+TEKRAR ET
+    doğal ve rahat bir gülümseme yap
+    EĞER gülümseme tatmin edici ise
+        GÜLÜMSEME_DÜZGÜN ← EVET
+tamamla ve bir sonraki adıma geç
+
+# 6. Kamera odaklama
+ODAK_DÜZGÜN ← HAYIR
+TEKRAR ET
+    kamerayı sabit tut ve odakla
+    EĞER odaklama tatmin edici ise
+        ODAK_DÜZGÜN ← EVET
+tamamla ve bir sonraki adıma geç
+
+# 7. Fotoğraf çekme
+FOTOĞRAF_TATMIN_EDİCİ ← HAYIR
+TEKRAR ET
+    fotoğrafı çek
+    EĞER fotoğraf bulanık veya tatmin edici değilse
+        tekrar çek
+    DEĞİLSE
+        FOTOĞRAF_TATMIN_EDİCİ ← EVET
+tamamla ve bir sonraki adıma geç
+
+# 8. Fotoğraf seçimi ve düzenleme
+DÜZENLEME_TAMAM ← HAYIR
+TEKRAR ET
+    en iyi fotoğrafı seç
+    EĞER gerekirse ışık, renk veya kontrastı ayarla
+    EĞER sonuç tatmin edici ise
+        DÜZENLEME_TAMAM ← EVET
+MÜKEMMEL SELFIE OLUŞTURULDU
+
+BİTİR
+
+
+ChatGPT:
+
+"İyi bir selfie çekmek için gerekenleri belirle ve bunları listeleyerek adım adım ilerle 
+
+İşte **iyi bir selfie çekmenin kısa ve net adımları**:
+
+1. **Işığı bul** — Yüzüne gelen doğal ışık en iyisidir.
+2. **Arka planı kontrol et** — Dağınıklık dikkat dağıtır.
+3. **Kamerayı biraz yukarıda tut** — Daha iyi açı verir.
+4. **Yüzünü ortalama** — Ne çok yakın, ne çok uzak.
+5. **Gülümse ama doğal ol** — Zorlama gülüş belli olur.
+6. **Odakla ve sabit dur** — Bulanık çıkmaması için.
+7. **Birden fazla dene** — En iyisini sonra seçersin.
+8. **Gerekirse düzenle** — Işık veya renk ayarı yeterlidir.
+
+Gülümseme her selfie için en iyisi olmayabilir ya da arka plan daha göz alıcı şekilde yapılabilir kendim için en iyi olduğunu düşündüklerimi sıraladım ve pseudocodeu bu şekilde oluşturması gerektiğini söyledim.
+
+" Belirlediğin özellik ve adımları göz önünde bulundurarak bunları sırasıyla yapmanı ve eğer özelliklerden herhangi biri istenilen durumda değilse uygun hale getirerek adımları ilerlemeni istiyorum . Bu dediklerime uygun bir pseudocode yazabilir misin?"
