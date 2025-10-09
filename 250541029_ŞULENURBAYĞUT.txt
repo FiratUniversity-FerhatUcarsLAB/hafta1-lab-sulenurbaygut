@@ -1,0 +1,59 @@
+Öğrenci No:250541029
+AD-SOYAD:ŞULENUR BAYĞUT
+
+Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+PROBLEM ANALİZİ:
+Belli bir mevcuda sahip bir sınıfa sahibiz ve öğrencilerin aldığı notları yüksekten düşüğe göre sıralamalıyız. Öğrencilerin isimleri ve notları belli  bir düzene göre sıralanmalı ve liste haline getirilmeli.En başa en yüksek not ve en sona en düşük not yazılmalı ve liste azalarak ilerlemeli.
+
+SINIF NOTLARINI YÜKSEKTEN DÜŞÜĞE SIRALAMA 
+"5 kişilik mevcudu olan sınıfta farklı notlarda puanlar alınıyor. Bu notlar yüksek puandan düşük puana göre sıralanmalı ve en başa en yüksek not en alta en düşük not gelecek şekilde her satırda azalarak listelenmeli. Lista yaparken notlarla beraber öğrencinin adını da belirt ve pseudocode oluştur."
+
+Başlat:
+    # 1️⃣ Öğrencilerin isim ve notlarını tanımla
+    Ogrenciler = [
+        {"isim": "Ahmet", "not": 75},
+        {"isim": "Ayşe", "not": 60},
+        {"isim": "Mehmet", "not": 90},
+        {"isim": "Elif", "not": 55},
+        {"isim": "Deniz", "not": 80}
+    ]
+
+    # 2️⃣ Öğrenci sayısını belirle
+    ÖğrenciSayisi = Ogrenciler içindeki toplam öğrenci sayısı
+
+    # 3️⃣ Sıralama Fonksiyonu
+    Fonksiyon OgrencileriSiralaYuksektenDusuge(Ogrenciler):
+        Tekrarla ÖğrenciSayisi - 1 kez:
+            Her i = 0’dan ÖğrenciSayisi - 2’ye kadar:
+                Eğer Ogrenciler[i]["not"] < Ogrenciler[i+1]["not"] ise:
+                    # Yer değiştirme işlemi
+                    Ogrenci1 = Ogrenciler[i]
+                    Ogrenci2 = Ogrenciler[i+1]
+
+                    Ogrenciler[i] = Ogrenci2
+                    Ogrenciler[i+1] = Ogrenci1
+        # Fonksiyon sonunda Ogrenciler listesi sıralanmış olarak kalır
+
+# --- Ana Program ---
+Başlat:
+    Ekrana yaz: "Sıralama işlemi başlıyor..."
+
+    # 4️⃣ Sıralamayı uygula
+    OgrencileriSiralaYuksektenDusuge(Ogrenciler)
+
+    # 5️⃣ Sıralanmış listeyi göster
+    Ekrana yaz: "Öğrenciler notlarına göre yüksekten düşüğe sıralandı:"
+    
+    Her öğrenci için Ogrenciler içinde:
+        Ekrana yaz: öğrenci["isim"] + " - " + öğrenci["not"]
+
+    # 6️⃣ Sıralı sonuç
+    Ekrana yaz: "Sıralı Liste:"
+    1. Mehmet - 90
+    2. Deniz - 80
+    3. Ahmet - 75
+    4. Ayşe - 60
+    5. Elif - 55
+
+    # 7️⃣ İşlem tamamlandı mesajı
+    Ekrana yaz: "Bitti."
