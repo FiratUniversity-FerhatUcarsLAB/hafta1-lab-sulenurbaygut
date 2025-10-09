@@ -1,4 +1,132 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541029
+AD-SOYAD:ŞULE NUR BAYĞUT
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+PROBLEM ANALİZİ:                                                                                                                  KUSURSUZ BİR OMLET OLUŞTURMAMIZ GEREKİYOR . OLUŞTURULAN OMLETİN MALZEMELERİ EKSİKSİZ OLMALI İYİ PİŞMELİ UYGUN ADIMLARLA İLERLENMELİ VE GEREKLİ DURUMLARDA KONTROL EDEREK ADIMI İLERLETMELİ , DURAKLAMALI VEYA ÖNCEKİ ADIMIN EKSİKLERİ GİDERİLEREK HAREKET EDİLMELİ UYGUN MALZEMELER GEREKLİ ADIMLARDA EKLENMELİ OMLETİN PİŞİP PİŞMEDİĞİ BELLİ ADIMLARDA KONTROL EDİLMELİ VE EN SONUNDA İYİ BİR SUNUM YAPILMALI.                                                                                                                                                                                                                                MÜKEMMEL BİR OMLET YAPMAK İÇİN ADIMLAR :                                                                                "Kusursuz bir omlet oluşturman gerekiyor ama öncesinde bir malzeme listesi oluşturmalısın malzemeleri kontrol etmen bulunan malzemelere göre aşama aşama ilerlemen adımların eksikleri varsa bir sonraki adımı buna uygun şekilde yapman ve doğru pişirmen gerekiyor. Omletin yanmaması ve az pişmemesi lazım . Malzemeler eklenmesi gereken anda eklenmeli ve en sonunda tam pişmişse uygun şekilde servis edilmeli ve psedocode tamamlanmalı."                                                                                                                                                                                    Başla
+
+// 1️⃣ Malzemeleri hazırlamak ve kontrol etmek
+IF yumurtalar taze ise:
+    "Yumurtalar taze, harika bir başlangıç."
+ELSE:
+    "Yumurtalar taze değil. Lütfen taze yumurta kullan."
+
+IF süt veya krema varsa:
+    "Süt veya krema mevcut, omlet daha yumuşak olacak."
+ELSE:
+    "Süt veya krema eksik. Omlet biraz daha yoğun olabilir."
+
+IF tuz varsa:
+    "Tuz mevcut, tat dengesi sağlanacak."
+ELSE:
+    "Tuz eklenmeli."
+
+IF karabiber varsa:
+    "Karabiber mevcut, lezzeti tamamlayacak."
+ELSE:
+    "Karabiber eklenmeli."
+
+IF peynir kullanmak istiyorsan ama peynir varsa:
+    "Peynir mevcut, omlete tat katacak."
+ELSE IF peynir kullanmak istiyorsan ama peynir yoksa:
+    "Peynir eksik. Bu adım atlanacak."
+
+IF sebzeler kullanmak istiyorsan ama sebzeler varsa:
+    "Sebzeler mevcut, omlete renk ve tat katacak."
+ELSE IF sebzeler kullanmak istiyorsan ama sebzeler yoksa:
+    "Sebzeler eksik. Bu adım atlanacak."
+
+IF isteğe bağlı et malzemesi kullanmak istiyorsan ama et varsa:
+    "Et mevcut, omlete ekstra lezzet katacak."
+ELSE IF isteğe bağlı et malzemesi kullanmak istiyorsan ama et yoksa:
+    "Et malzemesi yok. Bu adım atlanacak."
+
+// 2️⃣ Sebzeleri ve isteğe bağlı malzemeleri hazırlamak
+IF sebzeler varsa:
+    "Sebzeler hazırlanıyor ve doğranıyor."
+    FOR her sebze IN sebzeler:
+        "Sebzeleri küçük ve eşit parçalara kes."
+
+IF isteğe bağlı et varsa:
+    "Et parçaları hazırlanıyor ve küçük parçalara kesiliyor."
+
+IF peynir varsa:
+    "Peynir rendeleniyor ve kullanıma hazır hâle getiriliyor."
+
+IF yeşillikler varsa:
+    "Taze yeşillikler yıkanıyor ve ince doğranıyor."
+
+// 3️⃣ Yumurtaları çırpmak
+"Yumurtalar karıştırma kabına kırılıyor."
+
+IF süt veya krema varsa:
+    "Süt veya krema ekleniyor."
+ELSE:
+    "Süt/krema eklenmiyor, omlet daha yoğun olacak."
+
+Tuz ve karabiber ekle
+"Karışım, çırpıcı veya çatalla iyice çırpılıyor; homojen bir karışım elde ediliyor."
+
+// 4️⃣ Tavayı hazırlamak
+"Tava orta ateşte ısıtılıyor."
+
+IF tava yeterince ısınmışsa:
+    "Tava hazır, pişirme için ideal sıcaklık."
+ELSE:
+    "Tava henüz yeterince ısınmadı, birkaç saniye bekle."
+
+"Yağ veya tereyağı tavaya ekleniyor ve eşit şekilde yayılıyor."
+
+// 5️⃣ Omleti tavaya dök ve pişirme süreci
+"Yumurtalı karışım tavaya dökülüyor."
+PişmeTamam = false
+Süre = 0
+
+WHILE PişmeTamam = false:
+    Süre += 2  // Her 2 dakikada bir kontrol
+
+    "Omlet pişiyor..."  // Kontrol devam ediyor
+
+    IF kenarlar sertleşti ama üst kısmı hâlâ akışkansa:
+        "Spatula ile kenarlar tavaya doğru çekiliyor."
+        "Omlet hafifçe sallanarak tabanda eşit şekilde pişiriliyor."
+
+    IF alt ve üst tamamen piştiyse:
+        "Omlet tam olarak pişti."
+        PişmeTamam = true
+
+// 6️⃣ Opsiyonel malzemeleri eklemek
+IF peynir varsa:
+    "Peynir eşit şekilde omlete dağıtılıyor."
+    "Peynir hafifçe eritiliyor."
+ELSE:
+    "Peynir eklenmeyecek."
+
+IF sebzeler varsa:
+    "Sebzeler eşit şekilde omlete ekleniyor."
+ELSE:
+    "Sebzeler eklenmeyecek."
+
+IF isteğe bağlı et varsa:
+    "Et parçaları ekleniyor ve kısa süre pişiriliyor."
+ELSE:
+    "Et eklenmeyecek."
+
+// 7️⃣ Omleti katlamak ve servis
+"Omlet spatula ile dikkatlice ikiye katlanıyor."
+"Omlet şık bir tabakta servis ediliyor."
+
+IF yeşillikler varsa:
+    "Üzerine taze yeşillikler serpiştiriliyor."
+ELSE:
+    "Yeşillik eklenmeyecek."
+
+// 8️⃣ Son kontrol
+IF alt kısmın yanmadığını ama üst kısmın tamamen piştiğini kontrol et:
+    "Omlet kusursuz ve servise hazır."
+ELSE:
+    "Omlet birkaç saniye daha pişirilmeli."
+
+"Afiyet olsun!"
+
+Bitir
+LLM YARDIM AŞAMALARI:                                                                                                                           ChatGPTden yardım alarak yaptım PROBLEM ve çözüm aşamalarını yazarak pseudocode oluşturdum ve devamında en başa yazdığım psedocode cevabını aldım.                                                                                    Omlet sadece yumurtalarla , içerisine peynir eklenerek ,yeşillik eklenerek veya karabiber eklenmeyerek de yapılabilir.                                                                                                                                                       
