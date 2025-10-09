@@ -125,3 +125,4 @@ SON
 BİTİR
 
 Pastanın büyüklüğü sıfır ya da sıfırdan küçük olamaz elimizde bir pasta var ve bunun adil şekilde dağıtılması gerekiyor ama pseudocode yazmasını isterken bunu söylemedim ve bu olasılığı da göz önünde bulundurdu bu yüzden pastanın belli bir büyüklüğe sahip olduğunu varsayarak tekrardan pseudocode yazmasını istedim.
+ 
