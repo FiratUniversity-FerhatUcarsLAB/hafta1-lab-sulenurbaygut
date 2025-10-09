@@ -1,4 +1,127 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No:250541029
+AD-SOYAD:ŞULE NUR BAYĞUT
 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+PROBLEM ANALİZİ.
+ Bir pastaya sahibiz ve bu pastayı üç kişi arasında eşit dağıtmalıyız ve paylaşım adil olmalı . 
+
+Pastanın büyüklüğünü ölçeriz ,büyüklüğünü hesapladığımız pastayı eşit şekilde dağıtarak adil pasta paylaşımı yapabiliriz.
+
+3 KİŞİ İÇİN ADİL PASTA PAYLAŞIMI 
+BAŞLA
+
+pastanın_büyüklüğü ← ölç
+
+EĞER ölçüm ile gözlemlenen büyüklük arasında fark varsa
+    pastayı yeniden ölç ve değeri güncelle
+SON
+
+kişiler ← ["Ayşe", "Mehmet", "Elif"]
+
+kesici ← rastgele seç(kişiler)
+kesici pastayı adil bir şekilde kesecek kişi olarak belirlenir
+
+parça_sayısı ← 3
+her_parça ← pastanın_büyüklüğü / parça_sayısı
+
+kesici pastayı üç parçaya böl
+
+EĞER parçalar eşit görünmüyorsa
+    kesici parçaları yeniden düzenle ve eşitle
+SON
+
+seçme_sırası ← ["Ayşe", "Mehmet", "Elif"]
+EĞER kesici = "Ayşe" İSE
+    seçme_sırası ← ["Mehmet", "Elif", "Ayşe"]
+EĞER kesici = "Mehmet" İSE
+    seçme_sırası ← ["Ayşe", "Elif", "Mehmet"]
+EĞER kesici = "Elif" İSE
+    seçme_sırası ← ["Ayşe", "Mehmet", "Elif"]
+SON
+
+kalan_parçalar ← [parça1, parça2, parça3]
+
+HER kişi İÇİN seçme_sırası LİSTESİNDE
+    kişi dikkatlice parçaları inceler
+    kişi bir parça seçer
+    kişi_parçası[kişi] ← seçilen_parça
+    seçilen_parça KALAN_PARÇALAR’dan çıkar
+SON
+
+HER kişi İÇİN kişi_parçası LİSTESİNDE
+    kişinin aldığı parçanın büyüklüğünü değerlendir
+    EĞER parça beklenenden küçükse
+        kesici parçaları yeniden dengele
+    SON
+SON
+
+herkesin payı yeniden incelenir
+
+EĞER herhangi bir kişi payını hâlâ adil bulmuyorsa
+    kesiciye parçaları yeniden düzenlemesi talimatı ver
+    süreç başa dönmeden, sadece düzenleme adımı tekrarlanır
+DEĞİLSE
+    paylaşımı tamamla ve herkesin memnuniyetini onayla
+SON
+
+pasta eşit şekilde paylaşıldığında süreç başarıyla tamamlanır
+
+BİTİR
+Seçim sırasında pastayı dilimleyen kişi en sonda alacak şekilde düzenleme yaptım ama bu dikkate alınmadan pasta seçim sırası rastgele olabilir ya da herkes öbür arkadaşı için seçim yapabilir . Amaç herkese eşit pasta dilimi vermekti.
+
+LLM soruları.
+"3 kişi için adil pasta dağıtımı yapmalıyız bunun için bir pseudocode yaz "
+BAŞLA
+
+pastanın_büyüklüğü ← ölç veya tahmin et
+
+EĞER pastanın_büyüklüğü ≤ 0 İSE
+    pastayı yeniden ölç
+    EĞER hâlâ ölçülemiyorsa
+        süreci durdur
+    SON
+SON
+
+kişiler ← ["Ayşe", "Mehmet", "Elif"]
+
+kesici ← rastgele seç(kişiler)
+belirle kesici’nin pastayı kesecek kişi olduğunu
+
+parça_sayısı ← 3
+her_parça ← pastanın_büyüklüğü / parça_sayısı
+
+EĞER kesici pastayı eşit şekilde kesemezse
+    kesiciye parçaları yeniden düzenlemesini söyle
+SON
+
+seçme_sırası ← ["Ayşe", "Mehmet", "Elif"]
+EĞER kesici = "Ayşe" İSE
+    seçme_sırası ← ["Mehmet", "Elif", "Ayşe"]
+EĞER kesici = "Mehmet" İSE
+    seçme_sırası ← ["Ayşe", "Elif", "Mehmet"]
+EĞER kesici = "Elif" İSE
+    seçme_sırası ← ["Ayşe", "Mehmet", "Elif"]
+SON
+
+kalan_parçalar ← [parça1, parça2, parça3]
+
+HER kişi İÇİN seçme_sırası LİSTESİNDE
+    kişi bir parça seçer
+    kişi_parçası[kişi] ← seçilen_parça
+    seçilen_parça KALAN_PARÇALAR’dan çıkar
+SON
+
+HER kişi İÇİN kişi_parçası LİSTESİNDE
+    kişinin aldığı parça miktarını kontrol et
+SON
+
+EĞER herhangi bir kişi payından memnun değilse
+    kesici pastayı yeniden eşit parçalara bölmeli
+    paylaşım sürecini yeniden başlat
+DEĞİLSE
+    herkesin payını onayla ve paylaşımı tamamla
+SON
+
+BİTİR
+
+Pastanın büyüklüğü sıfır ya da sıfırdan küçük olamaz elimizde bir pasta var ve bunun adil şekilde dağıtılması gerekiyor ama pseudocode yazmasını isterken bunu söylemedim ve bu olasılığı da göz önünde bulundurdu bu yüzden pastanın belli bir büyüklüğe sahip olduğunu varsayarak tekrardan pseudocode yazmasını istedim.
