@@ -130,3 +130,4 @@ ELSE:
 
 Bitir
 LLM YARDIM AŞAMALARI:                                                                                                                           ChatGPTden yardım alarak yaptım PROBLEM ve çözüm aşamalarını yazarak pseudocode oluşturdum ve devamında en başa yazdığım psedocode cevabını aldım.                                                                                    Omlet sadece yumurtalarla , içerisine peynir eklenerek ,yeşillik eklenerek veya karabiber eklenmeyerek de yapılabilir.                                                                                                                                                       
+ 
