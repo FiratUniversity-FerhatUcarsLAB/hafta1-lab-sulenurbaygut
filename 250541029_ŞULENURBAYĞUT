@@ -4,7 +4,8 @@ AD-SOYAD:ŞULE NUR BAYĞUT
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
 PROBLEM ANALİZİ:                                                                                                                  Tic Tac Toe oyununda kazanmamızı sağlayacak adımları bulmalıyız. Başlangıçta en iyi hamleyi yaparak ve devamında birbirine uygun adımlarla ilerleyerek kazanma stratejimizi oluşturmalıyız .Rakibin hamlelerini öngörmeli ,kazanmasını engellemeli ve savunmaları iyi yapmalıyız.Oyunun sonucunda iyi bir strateji ile kazanmalıyız 
 
-ÇÖZÜM ÖNERİLERİ                                                                                                               ÖNCELİK 1 : Hemen kazanabilmeye odaklan      
+ÇÖZÜM ÖNERİLERİ         
+ÖNCELİK 1 : Hemen kazanabilmeye odaklan      
 ÖNCELİK 2: Eğer rakip stratejil olarak daha iyi bir hamleyle başlamışsa rakibin kazanmasını engellemeye odaklan        
 ÖNCELİK 3: Orta karayi al ve merkez kontrolÜ sağla               
 ÖNCELİK 4: Köşeleri iyi değerlendir             
