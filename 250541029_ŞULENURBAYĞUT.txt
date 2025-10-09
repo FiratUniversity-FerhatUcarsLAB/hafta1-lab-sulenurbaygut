@@ -56,4 +56,4 @@ Başlat:
     5. Elif - 55
 
     # 7️⃣ İşlem tamamlandı mesajı
-    Ekrana yaz: "Bitti."
+    Ekrana yaz: "Bitti." 
